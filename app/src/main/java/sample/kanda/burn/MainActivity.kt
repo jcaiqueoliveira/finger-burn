@@ -1,4 +1,4 @@
-package sample.kanda.finger_burn
+package sample.kanda.burn
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

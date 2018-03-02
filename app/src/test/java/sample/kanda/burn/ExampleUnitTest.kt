@@ -1,4 +1,4 @@
-package sample.kanda.finger_burn
+package sample.kanda.burn
 
 import org.junit.Test
 
