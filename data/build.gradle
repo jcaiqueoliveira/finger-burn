@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation Deps.kotlin_stdLib
+    implementation Deps.rx
+    implementation Deps.retrofit
+    implementation Deps.rxjava_adapter
+    implementation Deps.gson_adapter
+    implementation Deps.okhttp
+
+    testImplementation TestDeps.junit
+    testImplementation TestDeps.assert_j
+    testImplementation TestDeps.mockito_kotlin
+
+}

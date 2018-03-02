@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion Versions.compile_sdk
     defaultConfig {
         applicationId "sample.kanda.finger_burn"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,11 +23,32 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation Deps.kotlin_stdLib
+    implementation Deps.design
+    implementation Deps.appcompat_v7
+    implementation Deps.cardview_v7
+    implementation Deps.recyclerview_v7
+    implementation Deps.kodein
+    implementation Deps.kodein_android
+    implementation Deps.rx
+    implementation Deps.view_model
+    implementation Deps.glide
+    annotationProcessor Deps.glide_compiler
+
+    testImplementation TestDeps.junit
+    testImplementation TestDeps.assert_j
+    testImplementation TestDeps.mockito_kotlin
+    testImplementation TestDeps.mockito_core
+    testImplementation TestDeps.mockito_inline
+    testImplementation TestDeps.robolectric
+    testImplementation TestDeps.mock_server
+
+    androidTestImplementation TestDeps.runner
+    androidTestImplementation TestDeps.espresso_core
+    androidTestImplementation TestDeps.espresso_contrib
+    androidTestImplementation TestDeps.espresso_intent
+    androidTestImplementation TestDeps.mockito_android
+    androidTestImplementation TestDeps.mockito_kotlin
+    androidTestImplementation TestDeps.mock_server
+    androidTestImplementation Deps.kodein_conf
 }

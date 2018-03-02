@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation Deps.kotlin_stdLib
+    implementation Deps.rx
+
+    testImplementation TestDeps.junit
+    testImplementation TestDeps.assert_j
+    testImplementation TestDeps.mockito_kotlin
+}
+
