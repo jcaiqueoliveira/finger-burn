@@ -6,7 +6,7 @@ package kanda.libs.domain
 
 sealed class DomainException : Throwable() {
     object SerializationException : DomainException()
-    object TimeoutDomainException : DomainException()
+    object TimeoutException : DomainException()
     object ServerException : DomainException()
     object ClientException : DomainException()
     object GenericException : DomainException()

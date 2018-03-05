@@ -29,6 +29,7 @@ dependencies {
     implementation Deps.appcompat_v7
     implementation Deps.kotlin_stdLib
     implementation Deps.rx
+    implementation Deps.rxandroid
 
     testImplementation TestDeps.junit
     testImplementation TestDeps.assert_j
