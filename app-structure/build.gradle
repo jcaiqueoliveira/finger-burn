@@ -26,17 +26,11 @@ android {
 
 dependencies {
     implementation project(':domain')
+    implementation Deps.appcompat_v7
     implementation Deps.kotlin_stdLib
     implementation Deps.rx
-    implementation Deps.retrofit
-    implementation Deps.rxjava_adapter
-    implementation Deps.gson_adapter
-    implementation Deps.okhttp
 
     testImplementation TestDeps.junit
     testImplementation TestDeps.assert_j
     testImplementation TestDeps.mockito_kotlin
-    testImplementation TestDeps.mock_server
-
-    androidTestImplementation TestDeps.runner
 }
