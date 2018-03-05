@@ -38,4 +38,5 @@ dependencies {
     testImplementation TestDeps.assert_j
     testImplementation TestDeps.mockito_kotlin
 
+    androidTestImplementation TestDeps.runner
 }
