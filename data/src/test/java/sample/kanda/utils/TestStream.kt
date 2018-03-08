@@ -6,7 +6,7 @@ import io.reactivex.Observable
  * Created by caique on 3/6/18.
  */
 
-infix fun <T> Observable<T>.shouldCompleteWithError(throwable: Throwable) {
+internal infix fun <T> Observable<T>.shouldCompleteWithError(throwable: Throwable) {
     this.test()
             .assertError(throwable)
 }
