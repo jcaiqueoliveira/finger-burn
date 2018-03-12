@@ -3,7 +3,7 @@ package sample.kanda.data.infra.test
 import io.reactivex.Observable
 import kanda.libs.domain.ChuckNorrisFact
 import kanda.libs.domain.RetriveChuckNorrisFact
-import retrofit2.Response
+import sample.kanda.data.infra.test.ResponseFact.getACorrectFactResponse
 import sample.kanda.data.transformers.ComposeInfraStructureTransformers
 
 /**
@@ -12,11 +12,8 @@ import sample.kanda.data.transformers.ComposeInfraStructureTransformers
 class InMemory : RetriveChuckNorrisFact {
     private lateinit var nextError: Throwable
     private var successState = false
-    private val fact = ChuckNorrisFact(
-            iconUrl = "",
-            phrase = "some chucknorris sentence")
 
-    val response: Response<ChuckNorrisFact> = Response.success(ChuckNorrisFact("", ""))
+    val response = getACorrectFactResponse()
 
     override fun getFacts(term: String): Observable<ChuckNorrisFact> {
         return Observable.just(response)
@@ -37,6 +34,5 @@ class InMemory : RetriveChuckNorrisFact {
     fun successState() {
         this.successState = true
     }
-
 
 }
