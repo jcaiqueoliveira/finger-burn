@@ -9,8 +9,10 @@ object MapChuckNorrisResponseToDomain {
     operator fun invoke(response: ChuckNorrisResponse): ChuckNorrisFact {
         return response.run {
             ChuckNorrisFact(
-                    iconUrl = iconUrl ?: "https://api.chucknorris.io/jokes",
-                    phrase = value ?: "Something wrong"
+                    iconUrl = iconUrl ?: "Something wrong",
+                    phrase = value ?: "Something wrong",
+                    category = category,
+                    url = url ?: "url"
             )
         }
     }

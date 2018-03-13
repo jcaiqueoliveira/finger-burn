@@ -30,7 +30,7 @@ class ComposeInfraStructureTransformersMockServerTest {
 
     @Test
     fun `should complete without error`() {
-        val body = Gson().toJson(ChuckNorrisResponse(null, null, null, null))
+        val body = Gson().toJson(ChuckNorrisResponse())
         print(body)
         doARequestWith(200, body) {
             getFacts("aaa")

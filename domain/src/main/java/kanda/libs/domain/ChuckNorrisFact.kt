@@ -5,4 +5,7 @@ package kanda.libs.domain
  */
 data class ChuckNorrisFact(
         val iconUrl: String,
-        val phrase: String)
+        val phrase: String,
+        val url: String,
+        val category: String?
+)

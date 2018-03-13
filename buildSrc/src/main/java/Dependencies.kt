@@ -62,6 +62,8 @@ object Deps {
 
     val view_model = "android.arch.lifecycle:viewmodel:${Versions.google_components}"
 
+    val view_model_ex = "android.arch.lifecycle:extensions:${Versions.google_components}"
+
     val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
 }
 

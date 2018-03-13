@@ -6,7 +6,8 @@ import com.google.gson.annotations.SerializedName
  * Created by caique on 3/7/18.
  */
 data class ChuckNorrisResponse(
-        @SerializedName("icon_url") val iconUrl: String?,
-        @SerializedName("id") val id: Int?,
-        @SerializedName("url") val url: String?,
-        @SerializedName("value") val value: String?)
+        @SerializedName("icon_url") val iconUrl: String?=null,
+        @SerializedName("id") val id: Int?=null,
+        @SerializedName("url") val url: String?=null,
+        @SerializedName("value") val value: String?=null,
+        @SerializedName("category") val category: String?=null)

@@ -24,6 +24,9 @@ android {
 }
 
 dependencies {
+    implementation project(':app-structure')
+    implementation project(':domain')
+    implementation project(':data')
     implementation Deps.kotlin_stdLib
     implementation Deps.design
     implementation Deps.appcompat_v7
@@ -33,6 +36,7 @@ dependencies {
     implementation Deps.kodein_android
     implementation Deps.rx
     implementation Deps.view_model
+    implementation Deps.view_model_ex
     implementation Deps.glide
     annotationProcessor Deps.glide_compiler
 
