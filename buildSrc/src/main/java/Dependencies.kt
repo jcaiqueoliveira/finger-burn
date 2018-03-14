@@ -12,7 +12,10 @@ object Versions {
     val support = "27.0.2"
 
     val rx = "2.1.10"
-    val rxandroid = "2.0.1"
+
+    val rxandroid = "2.0.0"
+
+    val rxBinding = "2.1.1"
 
     val retrofit = "2.3.0"
 
@@ -65,5 +68,7 @@ object Deps {
     val view_model_ex = "android.arch.lifecycle:extensions:${Versions.google_components}"
 
     val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+
+    val rx_binding = "com.jakewharton.rxbinding2:rxbinding-kotlin:${Versions.rxBinding}"
 }
 

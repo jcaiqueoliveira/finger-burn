@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">finger-burn</string>
+    <string name="hint_waiting_input_view">Insert you term</string>
 </resources>

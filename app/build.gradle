@@ -13,8 +13,13 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "sample.kanda.burn.util.SampleTestRunner"
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/rxbinding.properties'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,8 +40,12 @@ dependencies {
     implementation Deps.kodein
     implementation Deps.kodein_android
     implementation Deps.rx
+    implementation Deps.rx_binding
     implementation Deps.view_model
     implementation Deps.view_model_ex
+    implementation Deps.retrofit
+    implementation Deps.rxjava_adapter
+    implementation Deps.gson_adapter
     implementation Deps.glide
     annotationProcessor Deps.glide_compiler
 
