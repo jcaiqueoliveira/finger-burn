@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin_fact_screen"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/gif"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_img_waiting_input_state"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/default_margin_fact_screen" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/termEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_waiting_input_view" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+</ScrollView>
