@@ -69,6 +69,8 @@ object Deps {
 
     val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
 
+    val interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+
     val rx_binding = "com.jakewharton.rxbinding2:rxbinding-kotlin:${Versions.rxBinding}"
 }
 

@@ -2,4 +2,6 @@
 <resources>
     <dimen name="default_margin_fact_screen">16dp</dimen>
     <dimen name="height_img_waiting_input_state">180dp</dimen>
+    <dimen name="margin_category_to_button">4dp</dimen>
+    <dimen name="margin_item_list">8dp</dimen>
 </resources>

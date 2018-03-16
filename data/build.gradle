@@ -32,6 +32,7 @@ dependencies {
     implementation Deps.rxjava_adapter
     implementation Deps.gson_adapter
     implementation Deps.okhttp
+    implementation Deps.interceptor
 
     testImplementation TestDeps.junit
     testImplementation TestDeps.assert_j

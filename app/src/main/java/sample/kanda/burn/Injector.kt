@@ -2,6 +2,7 @@ package sample.kanda.burn
 
 import android.content.Context
 import com.github.salomonbrys.kodein.*
+import io.reactivex.schedulers.Schedulers
 import kanda.libs.domain.RetriveChuckNorrisFact
 import sample.kanda.burn.fact.FactNavigator
 import sample.kanda.burn.fact.FactViewModel
@@ -23,12 +24,16 @@ class Injector(val context: Context) {
         }
 
         bind<ChuckNorrisApi>() with singleton {
-            ServiceBuilder("https://api.chucknorris.io/")
+            ServiceBuilder(instance())
                     .create(ChuckNorrisApi::class.java)
         }
 
         bind<FactNavigator>() with provider {
-            FactNavigator()
+            FactNavigator(Schedulers.computation())
+        }
+
+        bind<String>() with singleton {
+            "https://api.chucknorris.io/jokes/"
         }
     }
 }

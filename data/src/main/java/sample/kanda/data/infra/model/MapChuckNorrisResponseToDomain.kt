@@ -11,7 +11,7 @@ object MapChuckNorrisResponseToDomain {
             ChuckNorrisFact(
                     iconUrl = iconUrl ?: "Something wrong",
                     phrase = value ?: "Something wrong",
-                    category = category,
+                    category = category?.first(),
                     url = url ?: "url"
             )
         }

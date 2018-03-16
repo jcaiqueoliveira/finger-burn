@@ -8,8 +8,9 @@ data class FactView(
         val itemType: ItemViewType,
         val icoUrl: String,
         val url: String,
-        val phrase: String)
+        val phrase: String,
+        val category: String)
 
-sealed class ItemViewType
-object MinTextSize : ItemViewType()
-object MaxTextSize : ItemViewType()
+sealed class ItemViewType(val size: Float)
+object MinTextSize : ItemViewType(12f)
+object MaxTextSize : ItemViewType(14f)
