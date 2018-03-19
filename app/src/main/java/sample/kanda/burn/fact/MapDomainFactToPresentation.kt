@@ -13,7 +13,8 @@ object MapDomainFactToPresentation {
                     color = getColorButton(category),
                     icoUrl = iconUrl,
                     url = url,
-                    phrase = phrase
+                    phrase = phrase,
+                    category = category ?: "Without Category"
             )
         }
     }

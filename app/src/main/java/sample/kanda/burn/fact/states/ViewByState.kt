@@ -8,4 +8,5 @@ import sample.kanda.burn.R
 
 object ViewByState {
     const val WAITING_INPUT_STATE = R.layout.fact_waiting_input_view
+    const val SUCCESS_STATE = R.layout.fact_success_state
 }

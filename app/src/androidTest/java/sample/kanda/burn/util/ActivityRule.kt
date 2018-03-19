@@ -35,7 +35,7 @@ abstract class ActivityRule<T : Activity>(clazz: Class<T>) {
 
     }
 
-    fun startActivity(intent: Intent? = null) {
+    fun launchTest(intent: Intent? = null) {
         val i = intent ?: Intent()
         rule.launchActivity(i)
     }

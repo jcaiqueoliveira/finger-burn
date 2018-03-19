@@ -20,6 +20,8 @@ class FactViewModel(private val useCase: RetriveChuckNorrisFact) : ViewModel() {
     fun getFact(term: String): Observable<State> {
         return useCase.getFacts(term)
                 .map { MapDomainFactToPresentation(it) }
+                .toList()
+                .toObservable()
                 .compose(HandleState())
                 .startWith(LOADING)
     }
