@@ -9,7 +9,7 @@ infix fun MockWebServer.shouldReturn(block: () -> MockResponse) {
 
 fun response() = MockResponse()
 
-infix fun MockResponse.withCode(code: Int): MockResponse {
+infix fun MockResponse.with(code: Int): MockResponse {
     setResponseCode(code)
     return this
 }
@@ -18,6 +18,8 @@ infix fun MockResponse.andBody(body: String): MockResponse {
     setBody(body)
     return this
 }
+
+
 
 
 

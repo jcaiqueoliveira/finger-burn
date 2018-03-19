@@ -5,7 +5,7 @@ package sample.kanda.data.infra.test
  */
 
 
-val factsResponse = "{\n" +
+val VALID_BODY = "{\n" +
         "    \"total\": 16,\n" +
         "    \"result\": [\n" +
         "        {\n" +

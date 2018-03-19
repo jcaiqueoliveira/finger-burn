@@ -7,7 +7,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import sample.kanda.data.infra.service.Service
-import sample.kanda.data.infra.test.factsResponse
+import sample.kanda.data.infra.test.VALID_BODY
 import sample.kanda.utils.doARequestWith
 
 /**
@@ -26,7 +26,7 @@ class ComposeInfraStructureTransformersMockServerTest {
 
     @Test
     fun `should complete without error`() {
-        doARequestWith(200, factsResponse) {
+        doARequestWith(200, VALID_BODY) {
             getFacts("aaa")
                     .test()
                     .assertComplete()

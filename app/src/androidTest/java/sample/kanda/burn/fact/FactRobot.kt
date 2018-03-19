@@ -13,19 +13,19 @@ import sample.kanda.burn.R
  */
 class FactRobot {
 
-    fun checkIfWaitingStateIsVisible(): FactRobot {
+    fun waitingStateIsVisible(): FactRobot {
 
         onView(withId(R.id.termEntry)).check(matches(isDisplayed()))
         return this
     }
 
-    fun searchTermsWithText(term: String): FactRobot {
+    fun typeSomeTermToSearch(term: String = "some string"): FactRobot {
 
         onView(withId(R.id.termEdtxt)).perform(typeText(term))
         return this
     }
 
-    fun checkIfSuccessStateIsVisible(): FactRobot {
+    fun successStateIsVisible(): FactRobot {
 
         onView(withId(R.id.listFacts)).check(matches(isDisplayed()))
         return this

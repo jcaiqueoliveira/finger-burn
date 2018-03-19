@@ -24,8 +24,8 @@ class WaitingStateTest : ActivityRule<FactActivity>(FactActivity::class.java) {
 
     @Test
     fun shouldShowWaitingState() {
-        startActivity()
-        robot.checkIfWaitingStateIsVisible()
+        launchTest()
+        robot.waitingStateIsVisible()
     }
 
     @After

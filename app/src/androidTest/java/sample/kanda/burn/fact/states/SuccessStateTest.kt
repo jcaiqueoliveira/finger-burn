@@ -14,8 +14,9 @@ import sample.kanda.burn.fact.FactActivity
 import sample.kanda.burn.fact.FactNavigator
 import sample.kanda.burn.fact.FactRobot
 import sample.kanda.burn.util.*
-import sample.kanda.data.infra.test.factsResponse
-import java.util.concurrent.TimeUnit
+import sample.kanda.data.infra.test.SUCCESS
+import sample.kanda.data.infra.test.VALID_BODY
+import sample.kanda.data.infra.test.passTime
 
 /**
  * Created by caique on 3/16/18.
@@ -23,39 +24,39 @@ import java.util.concurrent.TimeUnit
 @RunWith(AndroidJUnit4::class)
 class SuccessStateTest : ActivityRule<FactActivity>(FactActivity::class.java) {
     val robot = FactRobot()
-    val scheduler = TestScheduler()
-    val mockWebServer = MockWebServer()
+    val timer = TestScheduler()
+    val server = MockWebServer()
 
     @Before
     fun setUp() {
         super.beforeTests()
-        mockWebServer.start()
+        server.start()
 
-        val url = mockWebServer.url("/").toString()
+        val url = server.url("/").toString()
 
         addModule(Kodein.Module(allowSilentOverride = true) {
-            bind<FactNavigator>() with singleton { FactNavigator(scheduler) }
+            bind<FactNavigator>() with singleton { FactNavigator(timer) }
             bind<String>() with singleton { url }
         })
     }
 
     @Test
     fun shouldReceiveATermAndShowTheResponseCorrectly() {
-        mockWebServer shouldReturn { response() withCode 200 andBody factsResponse }
+        server shouldReturn { response() with SUCCESS andBody VALID_BODY }
 
-        startActivity()
+        launchTest()
 
         robot.apply {
-            checkIfWaitingStateIsVisible()
-            searchTermsWithText("game")
-            scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS)
-            checkIfSuccessStateIsVisible()
+            waitingStateIsVisible()
+            typeSomeTermToSearch()
+            timer.passTime(1000)
+            successStateIsVisible()
         }
     }
 
     @After
     fun tearDown() {
         super.afterTests()
-        mockWebServer.shutdown()
+        server.shutdown()
     }
 }
