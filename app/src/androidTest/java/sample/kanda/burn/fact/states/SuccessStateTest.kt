@@ -3,7 +3,9 @@ package sample.kanda.burn.fact.states
 import android.support.test.runner.AndroidJUnit4
 import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.bind
+import com.github.salomonbrys.kodein.instance
 import com.github.salomonbrys.kodein.singleton
+import io.reactivex.Scheduler
 import io.reactivex.schedulers.TestScheduler
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -11,7 +13,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import sample.kanda.burn.fact.FactActivity
-import sample.kanda.burn.fact.FactNavigator
 import sample.kanda.burn.fact.FactRobot
 import sample.kanda.burn.util.*
 import sample.kanda.data.infra.test.SUCCESS
@@ -24,7 +25,7 @@ import sample.kanda.data.infra.test.passTime
 @RunWith(AndroidJUnit4::class)
 class SuccessStateTest : ActivityRule<FactActivity>(FactActivity::class.java) {
     val robot = FactRobot()
-    val timer = TestScheduler()
+    lateinit var timer: TestScheduler
     val server = MockWebServer()
 
     @Before
@@ -35,9 +36,12 @@ class SuccessStateTest : ActivityRule<FactActivity>(FactActivity::class.java) {
         val url = server.url("/").toString()
 
         addModule(Kodein.Module(allowSilentOverride = true) {
-            bind<FactNavigator>() with singleton { FactNavigator(timer) }
+            bind<Scheduler>() with singleton { TestScheduler() }
             bind<String>() with singleton { url }
         })
+
+        timer = injector.instance<Scheduler>() as TestScheduler
+        println(timer)
     }
 
     @Test

@@ -2,9 +2,9 @@ package sample.kanda.burn
 
 import android.content.Context
 import com.github.salomonbrys.kodein.*
+import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import kanda.libs.domain.RetriveChuckNorrisFact
-import sample.kanda.burn.fact.FactNavigator
 import sample.kanda.burn.fact.FactViewModel
 import sample.kanda.data.infra.service.ChuckNorrisApi
 import sample.kanda.data.infra.service.Service
@@ -28,8 +28,8 @@ class Injector(val context: Context) {
                     .create(ChuckNorrisApi::class.java)
         }
 
-        bind<FactNavigator>() with provider {
-            FactNavigator(Schedulers.computation())
+        bind<Scheduler>() with provider {
+            Schedulers.computation()
         }
 
         bind<String>() with singleton {
