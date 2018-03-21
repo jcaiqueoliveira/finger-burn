@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sample.kanda.app.structure.Navigator
 import sample.kanda.app.structure.SUCCESS
 import sample.kanda.app.structure.State
-import sample.kanda.app.structure.ViewController
 import sample.kanda.burn.R
 import sample.kanda.burn.fact.states.Success
 import sample.kanda.burn.fact.states.WAITING_INPUT
@@ -25,9 +24,6 @@ class FactActivity : AppCompatActivity(), Navigator {
 
     private val scheduler by lazy { kodein.instance<Scheduler>() }
 
-    private var lastView: ViewController? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,14 +32,9 @@ class FactActivity : AppCompatActivity(), Navigator {
                 .subscribe { changeState(it) }
     }
 
-    override fun onDestroy() {
-        lastView?.dispose()
-        super.onDestroy()
-    }
-
     override fun changeState(state: State) {
 
-        lastView = when (state) {
+        when (state) {
             is WAITING_INPUT -> {
                 WaitingInputState(viewModel, rootView, this, scheduler)
             }
@@ -51,7 +42,6 @@ class FactActivity : AppCompatActivity(), Navigator {
             is SUCCESS<*> -> {
                 Success(state.value as List<FactView>, rootView)
             }
-            else -> null
         }
     }
 }
