@@ -7,8 +7,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fact_waiting_input_view.view.*
+import sample.kanda.app.structure.Navigator
 import sample.kanda.app.structure.ViewController
-import sample.kanda.burn.fact.FactNavigator
 import sample.kanda.burn.fact.FactViewModel
 import sample.kanda.burn.loadGif
 import sample.kanda.burn.widget.LceContainer
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
  */
 class WaitingInputState(private val vm: FactViewModel,
                         private val container: ViewGroup,
-                        private val navigator: FactNavigator,
+                        private val navigator: Navigator,
                         private val scheduler: Scheduler) : ViewController {
 
     private val lceView: LceContainer = LceContainer(container.context)
